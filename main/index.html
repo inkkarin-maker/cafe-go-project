@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Мой Go Сайт</title>
+</head>
+<body>
+    <h2>Наш уютный сервер</h2>
+
+    {{if .IsAdmin}}
+        <h1 style="color: blue;">Добро пожаловать, Офицер!</h1>
+    {{else if .Name}}
+        <h1>Привет, {{.Name}}!</h1>
+    {{else}}
+        <h1>Привет, Незнакомец!</h1>
+        <form action="/" method="GET">
+            <input type="text" name="user_name" placeholder="Ваше имя">
+            <button type="submit">Войти</button>
+        </form>
+    {{end}}
+
+    <hr>
+    <p>Вы наш гость №{{.VisitCount}}</p>
+</body>
+</html>
